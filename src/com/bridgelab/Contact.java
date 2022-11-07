@@ -1,17 +1,17 @@
 package com.bridgelab;
 
-public class ContactPerson {
+public class Contact {
     private String firstName;
     private String lastName;
     private String email;
-    private int phoneNumber;
+    private long phoneNumber;
     private int zip;
     private String city;
     private String state;
     private String address;
 
 //    Creating the public method to assign the contactPerson value
-    public void contact(String firstName, String lastName, String email, int phoneNumber, int zip, String city, String state, String address){
+    public Contact(String firstName, String lastName, String email, long phoneNumber, int zip, String city, String state, String address){
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -30,7 +30,7 @@ public class ContactPerson {
     public String getEmail() {
         return email;
     }
-    public int getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
     public int getZip() {
@@ -50,14 +50,14 @@ public class ContactPerson {
     @Override
     public String toString(){
         return "Contact info {" +
-                "First Name :: " + firstName +
-                "Last Name :: " + lastName +
-                "Email :: " + email +
-                "Phone Number :: " + phoneNumber +
-                "Zip :: " + zip +
-                "City :: " + city +
-                "State :: " + state +
-                "address :: " + address +
-                "} ";
+                "\t First Name :: " + firstName +
+                "\t Last Name :: " + lastName +
+                "\t Email :: " + email +
+                "\t Phone Number :: " + phoneNumber +
+                "\t Zip :: " + zip +
+                "\t City :: " + city +
+                "\t State :: " + state +
+                "\t address :: " + address +
+                "\t } ";
     }
 }
