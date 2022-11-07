@@ -1,8 +1,9 @@
 package com.bridgelab;
 
-public class Contact {
+public class ContactPerson {
     private String firstName;
     private String lastName;
+
     private String email;
     private long phoneNumber;
     private int zip;
@@ -11,7 +12,7 @@ public class Contact {
     private String address;
 
 //    Creating the public method to assign the contactPerson value
-    public Contact(String firstName, String lastName, String email, long phoneNumber, int zip, String city, String state, String address){
+    public ContactPerson(String firstName, String lastName, String email, long phoneNumber, int zip, String city, String state, String address){
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

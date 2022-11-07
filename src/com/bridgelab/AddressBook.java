@@ -3,13 +3,13 @@ package com.bridgelab;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-//UC2 - Ability to add a new Contact to Address Book
+//UC3 - Ability to edit existing contact person using their name
 
 public class AddressBook {
-    static ArrayList<Contact> cont = new ArrayList<Contact>();
+    static ArrayList<ContactPerson> cont = new ArrayList<ContactPerson>();
 //    Uses information was storing.
     public static void addContact(String firstName, String lastName, String email, long phoneNumber, int zip, String city, String state, String address){
-        cont.add(new Contact(firstName,lastName,email,phoneNumber,zip,city,state,address));
+        cont.add(new ContactPerson(firstName,lastName,email,phoneNumber,zip,city,state,address));
     }
 
     public static void main(String[] args) {
