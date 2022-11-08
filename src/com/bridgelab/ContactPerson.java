@@ -1,6 +1,9 @@
 package com.bridgelab;
 
+import java.util.Scanner;
+
 public class ContactPerson {
+    Scanner sc = new Scanner(System.in);
     private String firstName;
     private String lastName;
 
@@ -45,6 +48,26 @@ public class ContactPerson {
     }
     public String getAddress() {
         return address;
+    }
+
+    public void edit(){
+        System.out.println("Calling the edit method");
+        System.out.print("Please Enter the First Name :: ");
+        this.firstName = sc.next();
+        System.out.print("Please Enter the Last Name :: ");
+        this.lastName = sc.next();
+        System.out.print("Please enter the Email :: ");
+        this.email = sc.next();
+        System.out.print("Please enter the Phone Number :: ");
+        this.phoneNumber = sc.nextLong();
+        System.out.print("Please enter the zip :: ");
+        this.zip = sc.nextInt();
+        System.out.print("Please enter the City :: ");
+        this.city = sc.next();
+        System.out.print("Please enter the State :: ");
+        this.state = sc.next();
+        System.out.print("Please enter the Address :: ");
+        this.state = sc.next();
     }
 
 //    printing the contact person details
