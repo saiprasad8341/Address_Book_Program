@@ -13,17 +13,40 @@ public class AddressBook {
         cont.add(new ContactPerson(firstName,lastName,email,phoneNumber,zip,city,state,address));
     }
 
+//    Editing method is defined
     public static void editContact(String firstName){
         for (ContactPerson obj : cont){
             if(firstName.equals(obj.getFirstName())){
                 obj.edit();
             }
             else{
-                System.out.println();
+                System.out.println("Enter name is not present in the Address Book.. \n Thanks for use the Address Book Application");
             }
 //            for(ContactPerson objects : cont){
 //                System.out.println(objects);
 //            }
+        }
+    }
+
+//   Returns a non-negative integer if a Contact with phone is exists corresponding
+//   To which place in the arrayList the Contact is stored. Returns -1
+    public static int haveContact(String firstName){
+        for(ContactPerson object : cont){
+            if(object.getFirstName().equals(firstName)){
+                return cont.indexOf(object);
+            }
+        }
+        return -1;
+    }
+
+//    Deleting method defined
+    public static void deleteContact(String firstName){
+        int place = (int)haveContact(firstName);
+        if(place>=0){
+            cont.remove(place);
+            System.out.println("Contact has been deleted!!");
+        } else {
+            System.out.println("No Contact were present in the Address Book.. \n Thanks for use the Address Book Application..");
         }
     }
     public static void main(String[] args) {
@@ -56,12 +79,22 @@ public class AddressBook {
             addContact(firstName,lastName,email,phoneNumber,zip,city,state,address);
         }
 
-        System.out.print("If want to edit the contact press Y or N :: ");
+//        Editing Contact
+        System.out.print("If you want to edit the contact press Y :: ");
         String isEdit = sc.next().toLowerCase();
-        System.out.print("Enter the first name want to edit :: ");
-        String editName = sc.next();
         if(isEdit.equals("y")){
+            System.out.print("Enter the first name want to edit :: ");
+            String editName = sc.next();
             editContact(editName);
+        }
+
+//        Deleting the Contact
+        System.out.print("If you want to delete the Contact press Y :: ");
+        String isDelete = sc.next().toLowerCase();
+        if(isDelete.equals("y")){
+            System.out.print("Enter the first name want to be delete :: ");
+            String deleteName = sc.next();
+            deleteContact(deleteName);
         }
 
         //        Display
