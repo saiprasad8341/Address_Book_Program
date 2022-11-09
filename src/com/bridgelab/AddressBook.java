@@ -2,7 +2,7 @@ package com.bridgelab;
 
 import java.util.*;
 
-//UC3 - Ability to edit existing contact person using their name
+//UC5 - Ability to add multiple person to Address Book
 
 public class AddressBook {
 
