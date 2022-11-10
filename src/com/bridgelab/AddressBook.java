@@ -2,7 +2,7 @@ package com.bridgelab;
 
 import java.util.*;
 
-//UC5 - Ability to add multiple person to Address Book
+//UC6 - Refactor to add multiple Address Book to the System. Each Address Book has a unique Name
 
 public class AddressBook {
 
@@ -49,6 +49,7 @@ public class AddressBook {
             System.out.println("No Contact were present in the Address Book.. \n Thanks for use the Address Book Application..");
         }
     }
+
     public static void main(String[] args) {
         String firstName,lastName,email,city,state,address;
         long phoneNumber;
@@ -60,6 +61,10 @@ public class AddressBook {
         for (int i = 0; i < noofCont; i++ ){
             System.out.print("Please Enter the First Name :: ");
             firstName = sc.next();
+            if(haveContact(firstName)>=0){
+                System.out.println(firstName+" is already exit");
+                break;
+            }
             System.out.print("Please Enter the Last Name :: ");
             lastName = sc.next();
             System.out.print("Please enter the Email :: ");
@@ -80,7 +85,7 @@ public class AddressBook {
         }
 
 //        Editing Contact
-        System.out.print("If you want to edit the contact press Y :: ");
+        System.out.print("If you want to edit the contact press Y to skip press any key :: ");
         String isEdit = sc.next().toLowerCase();
         if(isEdit.equals("y")){
             System.out.print("Enter the first name want to edit :: ");
@@ -89,7 +94,7 @@ public class AddressBook {
         }
 
 //        Deleting the Contact
-        System.out.print("If you want to delete the Contact press Y :: ");
+        System.out.print("If you want to delete the Contact press Y to skip press any key :: ");
         String isDelete = sc.next().toLowerCase();
         if(isDelete.equals("y")){
             System.out.print("Enter the first name want to be delete :: ");

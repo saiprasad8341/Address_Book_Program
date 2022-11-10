@@ -1,5 +1,7 @@
 package com.bridgelab;
 
+import java.util.Comparator;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class ContactPerson {
@@ -69,6 +71,17 @@ public class ContactPerson {
         System.out.print("Please enter the Address :: ");
         this.state = sc.next();
     }
+
+//    Comparator
+    public static Comparator<ContactPerson> nameComarator = new Comparator<ContactPerson>() {
+        @Override
+        public int compare(ContactPerson o1, ContactPerson o2) {
+            String contact1 = o1.getFirstName().toLowerCase();
+            String contact2 = o2.getFirstName().toLowerCase();
+
+            return contact1.compareTo(contact2);
+        }
+    };
 
 //    printing the contact person details
     @Override
