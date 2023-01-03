@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+//UC9 - Ability to view Persons
+//by City or State
 public class AddressBookDictionary {
     static HashMap<String, AddressBook> dic = new HashMap<>();
     static Scanner sc = new Scanner(System.in);
@@ -16,7 +18,8 @@ public class AddressBookDictionary {
             System.out.println("1. Please 1 to add Address Book");
             System.out.println("2. Please 2 to view Address Book");
             System.out.println("3. Please 3 to view the Person in City or State");
-            System.out.println("4. Please 4 to exit");
+            System.out.println("4. Please 4 to view the Person by City or State");
+            System.out.println("5. Please 5 to exit");
             System.out.println();
 
             System.out.print("Please enter the Chosen Option ::: ");
@@ -48,6 +51,29 @@ public class AddressBookDictionary {
                     });
                     break;
                 case 4:
+                    System.out.print("Please enter the City or State ::: ");
+                    String nm = sc.next();
+                    if (nm.equalsIgnoreCase("city")){
+                        System.out.print("Please enter the city ::: ");
+                        String city = sc.next();
+                        dic.values().stream().forEach((ele) -> {
+                            ele.cityPersonMap.entrySet().stream().filter((ele2) ->
+                                ele2.getKey().equalsIgnoreCase(city)
+                            ).forEach((ele3) -> System.out.println(ele3));
+                        });
+                    } else if (nm.equalsIgnoreCase("state")) {
+                        System.out.print("Please enter the state ::: ");
+                        String state = sc.next();
+                        dic.values().stream().forEach((ele) -> {
+                            ele.statePersonMap.entrySet().stream().filter((ele2) ->
+                                ele2.getKey().equalsIgnoreCase(state)
+                            ).forEach((ele3) -> System.out.println(ele3));
+                        });
+                    } else {
+                        System.out.println("Invalid input.... Please enter 'City' || 'State'");
+                    }
+                    break;
+                case 5:
                     flag = false;
                     break;
                 default:

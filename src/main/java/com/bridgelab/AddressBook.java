@@ -2,14 +2,15 @@ package com.bridgelab;
 
 import java.util.*;
 
-//UC8 - Ability to search Person
-//in a City or State across
-//the multiple AddressBook
-
 public class AddressBook {
 
     static Scanner sc = new Scanner(System.in);
     static List<ContactPerson> cont = new ArrayList<>();
+
+    List<ContactPerson> contactsCityList = new ArrayList<>();
+    List<ContactPerson> contactsStateList = new ArrayList<>();
+    HashMap<String, List<ContactPerson>> cityPersonMap = new HashMap<>();
+    HashMap<String, List<ContactPerson>> statePersonMap = new HashMap<>();
 //    Uses information was storing.
     public static void addContact(String firstName, String lastName, String email, long phoneNumber, int zip, String city, String state, String address){
         cont.add(new ContactPerson(firstName,lastName,email,phoneNumber,zip,city,state,address));
@@ -46,6 +47,17 @@ public class AddressBook {
             System.out.println("Contact has been deleted!!");
         } else {
             System.out.println("No Contact were present in the Address Book.. \n Thanks for use the Address Book Application..");
+        }
+    }
+
+    public void cityAndState(HashMap<String, List<ContactPerson>> mapCity, String city, HashMap<String, List<ContactPerson>> mapState, String state){
+        if (cityPersonMap.containsKey(city)){
+            contactsCityList = cityPersonMap.get(city);
+            cityPersonMap.put(city, contactsCityList);
+        }
+        if (cityPersonMap.containsKey(state)) {
+            contactsStateList = statePersonMap.get(state);
+            statePersonMap.put(state, contactsStateList);
         }
     }
 
@@ -96,6 +108,7 @@ public class AddressBook {
                         System.out.println("-------------------------------------------------------------------------------");
 
                         addContact(firstName, lastName, email, phoneNumber, zip, city, state, address);
+                        cityAndState(cityPersonMap, city, statePersonMap, state);
                     }
                     break;
                 case 2:
