@@ -2,9 +2,9 @@ package com.bridgelab;
 
 import java.util.*;
 
-//UC7 - Ability to ensure there is no Duplicate
-//Entry of the same Person in a particular
-//Address Book
+//UC8 - Ability to search Person
+//in a City or State across
+//the multiple AddressBook
 
 public class AddressBook {
 
