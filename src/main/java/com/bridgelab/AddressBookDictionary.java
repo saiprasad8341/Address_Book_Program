@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-//UC11 - Ability to sort the entries in the
-//address book alphabetically by
-//Person’s name
+//UC12 - Ability to sort the entries in
+//the address book by City,
+//State, or Zip
 public class AddressBookDictionary {
     static HashMap<String, AddressBook> dic = new HashMap<>();
     static Scanner sc = new Scanner(System.in);
@@ -22,7 +22,8 @@ public class AddressBookDictionary {
             System.out.println("4. Please 4 to view the Person by City or State");
             System.out.println("5. Please 5 to view the count by City or State");
             System.out.println("6. Please 6 to short by Name");
-            System.out.println("7. Please 7 to exit");
+            System.out.println("7. Please 7 to short by Name");
+            System.out.println("8. Please 8 to exit");
             System.out.println();
 
             System.out.print("Please enter the Chosen Option ::: ");
@@ -110,6 +111,33 @@ public class AddressBookDictionary {
                     }
                     break;
                 case 7:
+                    System.out.print("Enter the option by which need to sort City, State and Zip code ::: ");
+                    String choice = sc.next();
+                    if (choice.equalsIgnoreCase("City")) {
+                        for (Map.Entry<String, AddressBook> ele : dic.entrySet()){
+                            System.out.println("Sorting entries for AddressBook "+ ele.getKey() + " by City ::: ");
+                            ele.getValue().cont.stream().sorted((con1,con2) ->
+                                con1.getCity().compareToIgnoreCase(con2.getCity())
+                            ).forEach(ele2 -> System.out.println(ele2));
+                        }
+                    } else if (choice.equalsIgnoreCase("State")) {
+                        for (Map.Entry<String, AddressBook> ele : dic.entrySet()){
+                            System.out.println("Sorting entries for AddressBook "+ ele.getKey() + " by State ::: ");
+                            ele.getValue().cont.stream().sorted((con1,con2) ->
+                                    con1.getState().compareToIgnoreCase(con2.getState())
+                            ).forEach(ele2 -> System.out.println(ele2));
+                        }
+                    }else if (choice.equalsIgnoreCase("Zip code")) {
+                        for (Map.Entry<String, AddressBook> ele : dic.entrySet()){
+                            System.out.println("Sorting entries for AddressBook "+ ele.getKey() + " by City ::: ");
+                            ele.getValue().cont.stream().sorted((con1,con2) ->
+                                    (con1.getZip() < con2.getZip() ? -1 : (con1.getZip() > con2.getZip()) ? 1 : 0)
+                            ).forEach(ele2 -> System.out.println(ele2));
+                        }
+                    } else
+                        System.out.println("Invalid input. Please enter the valid Input....");
+                    break;
+                case 8:
                     flag = false;
                     break;
                 default:
